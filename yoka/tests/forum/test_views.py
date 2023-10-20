@@ -363,10 +363,10 @@ class TestSearchThreadView(AuthViewsTestCase):
         self.assertTrue(threads[1].create_date < threads[0].create_date)
 
     def test_get_ordering_create_date_des(self):
-        res = self.client.get(reverse(self.viewname) + "?order=create_date")
+        res = self.client.get(reverse(self.viewname) + "?order=-create_date")
         threads = res.context["threads"]
         self.assertEqual(len(threads), 3)
-        self.assertTrue(threads[0].create_date < threads[1].create_date)
+        self.assertTrue(threads[1].create_date < threads[0].create_date)
 
     def test_get_ordering_create_date_asc(self):
         res = self.client.get(reverse(self.viewname) + "?order=create_date")
