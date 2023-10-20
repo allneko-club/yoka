@@ -1,0 +1,12 @@
+{% load i18n forum_tags %}
+
+<div class="p-4">
+  {% if user.is_authenticated %}
+  <div class="mb-3">
+    <a href="{% url 'forum:create_thread' %}">{% trans "スレッド作成" %}</a>
+  </div>
+  {% endif %}
+  <div>
+    {% get_categories %}
+  </div>
+</div>

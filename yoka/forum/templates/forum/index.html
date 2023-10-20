@@ -1,0 +1,17 @@
+{% extends "layouts/2column.html" %}
+{% load i18n %}
+
+{% block main %}
+  <div>
+    <h3 class="my-2">
+      {% trans "最新のスレッド" %}
+    </h3>
+
+    <div class="col-md-12">
+      {% for thread in object_list %}
+        {% include "components/thread-card.html" %}
+      {% endfor %}
+    </div>
+    <a href="{% url 'forum:thread_list' %}">{% trans "もっと見る" %}</a>
+  </div>
+{% endblock %}

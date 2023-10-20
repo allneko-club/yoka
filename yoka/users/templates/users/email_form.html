@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>{% trans "email_update" %}</h1>
+      </div>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="my-3">
+        <p class="my-0">{{ form.email.label }}{% trans "(必須)" %}</p>
+        {% for error in form.email.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.email }}
+      </div>
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit">{% trans "保存" %}</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

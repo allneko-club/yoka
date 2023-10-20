@@ -1,0 +1,34 @@
+- model: forum.Category
+  pk: 1
+  fields:
+    slug: "food"
+    title: "食・料理"
+    rank: 1
+
+- model: forum.Category
+  pk: 2
+  fields:
+    slug: "game"
+    title: "ゲーム"
+    rank: 2
+
+- model: forum.Category
+  pk: 3
+  fields:
+    slug: "anime"
+    title: "アニメ"
+    rank: 3
+
+- model: forum.Category
+  pk: 4
+  fields:
+    slug: "manga"
+    title: "マンガ"
+    rank: 4
+
+- model: forum.Category
+  pk: 5
+  fields:
+    slug: "music"
+    title: "音楽"
+    rank: 5

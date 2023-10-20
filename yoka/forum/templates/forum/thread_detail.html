@@ -1,0 +1,54 @@
+{% extends 'layouts/2column.html' %}
+{% load i18n core_tags %}
+
+{% block main %}
+  <div>
+    {% include "forum/components/thread_detail_card.html" %}
+    <div class="mt-4">
+      <div class="row">
+        <div class="col">
+          <h2 class="h5">{% trans "返信" %}</h2>
+        </div>
+      </div>
+      {% if replies %}
+        {% include "forum/components/reply_list.html" %}
+      {% else %}
+        <p>{% trans "返信はまだありません。" %}</p>
+      {% endif %}
+      <div>
+        {% get_pagination %}
+      </div>
+    </div>
+
+    <div class="my-4">
+      <h3 class="h5">{% trans "返信フォーム" %}</h3>
+      <div class="row">
+        <div class="col">
+          {% if thread.closed %}
+            <div class="alert alert-warning">
+              <p>{% trans "このスレッドは終了しました" %}</p>
+            </div>
+          {% elif request.user.is_authenticated %}
+            <form method="post">
+              {% csrf_token %}
+              {% for field in form %}
+                <div class="my-2">
+                  <p class="my-0">{{ field.label }}{% if field.field.required %}{% trans "(必須)" %}{% endif %}</p>
+                  {% for error in field.errors %}
+                    <p class="text-danger">{{ error|escape }}</p>
+                  {% endfor %}
+                  {{ field }}
+                </div>
+              {% endfor %}
+              <div>
+                <input class="btn btn-primary" type="submit" name="confirm" value="{% trans "入力内容確認" %}">
+              </div>
+            </form>
+          {% else %}
+            <p>{% trans '返信する場合はログインして下さい。' %}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layouts/2column.html' %}
+{% load i18n core_tags %}
+
+{% block main %}
+  <div class="container">
+    <h1>{% trans "スレッド作成 入力確認" %}</h1>
+
+    <b>{{ form.title.label }}</b>
+    <p>{{ form.title.value }}</p>
+
+    <b>{{ form.category.label }}</b>
+    <p>{{ form.category.field.choices|selected_text:form.category.data }}</p>
+
+    <b>{{ form.handle_name.label }}</b>
+    <p>{{ form.handle_name.value }}</p>
+
+    <b>{{ form.content.label }}</b>
+    <p>{{ form.content.value }}</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        {{field.as_hidden}}
+      {% endfor %}
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit" name="next" value="back">{% trans "戻る" %}</button>
+        <button class="btn btn-primary" type="submit" name="next" value="submit">{% trans "書き込む" %}</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

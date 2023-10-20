@@ -1,0 +1,38 @@
+#----------------------
+# カテゴリー
+#----------------------
+- model: forum.Category
+  pk: 1
+  fields:
+    title: ニュース
+    description: "時事ネタ\r\nトレンド"
+- model: forum.category
+  pk: 2
+  fields:
+    title: 生活
+    description: "掃除\r\n料理"
+- model: forum.category
+  pk: 3
+  fields:
+    title: 恋愛
+    description: "恋愛、夫婦関係"
+- model: forum.category
+  pk: 4
+  fields:
+    title: 趣味
+    description: "趣味"
+- model: forum.category
+  pk: 5
+  fields:
+    title: 社会
+    description: "社会"
+- model: forum.category
+  pk: 6
+  fields:
+    title: 職業
+    description: "職業"
+- model: forum.category
+  pk: 7
+  fields:
+    title: 投資
+    description: "投資"

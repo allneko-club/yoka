@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main, develop]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11]
+    name: ubuntu, SQLite, Python ${{ matrix.python-version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+          cache-dependency-path: 'requirements/local.txt'
+      - name: Install Dependencies
+        run: |
+          pip install get-chrome-driver --upgrade
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -r requirements/local.txt
+      - name: Run Tests
+        run: python manage.py test --settings=config.settings.test --verbosity=2

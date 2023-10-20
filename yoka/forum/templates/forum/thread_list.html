@@ -1,0 +1,14 @@
+{% extends 'layouts/2column.html' %}
+{% load core_tags i18n %}
+
+{% block main %}
+  <div>
+    {% if category  %}
+      <h3>{% blocktranslate with title=category.title %}{{ title }}のスレッド{% endblocktranslate %}</h3>
+    {% endif %}
+    {% for thread in page_obj %}
+      {% include "components/thread-card.html" %}
+    {% endfor %}
+    {% get_pagination %}
+  </div>
+{% endblock %}

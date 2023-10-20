@@ -1,0 +1,287 @@
+- model: users.Address
+  pk: 1
+  fields:
+    name: "北海道"
+    rank: 1
+
+- model: users.Address
+  pk: 2
+  fields:
+    name: "青森県"
+    rank: 2
+
+- model: users.Address
+  pk: 3
+  fields:
+    name: "岩手県"
+    rank: 3
+
+- model: users.Address
+  pk: 4
+  fields:
+    name: "宮城県"
+    rank: 4
+
+- model: users.Address
+  pk: 5
+  fields:
+    name: "秋田県"
+    rank: 5
+
+- model: users.Address
+  pk: 6
+  fields:
+    name: "山形県"
+    rank: 6
+
+- model: users.Address
+  pk: 7
+  fields:
+    name: "福島県"
+    rank: 7
+
+- model: users.Address
+  pk: 8
+  fields:
+    name: "茨城県"
+    rank: 8
+
+- model: users.Address
+  pk: 9
+  fields:
+    name: "栃木県"
+    rank: 9
+
+- model: users.Address
+  pk: 10
+  fields:
+    name: "群馬県"
+    rank: 10
+
+- model: users.Address
+  pk: 11
+  fields:
+    name: "埼玉県"
+    rank: 11
+
+- model: users.Address
+  pk: 12
+  fields:
+    name: "千葉県"
+    rank: 12
+
+- model: users.Address
+  pk: 13
+  fields:
+    name: "東京都"
+    rank: 13
+
+- model: users.Address
+  pk: 14
+  fields:
+    name: "神奈川県"
+    rank: 14
+
+- model: users.Address
+  pk: 15
+  fields:
+    name: "新潟県"
+    rank: 15
+
+- model: users.Address
+  pk: 16
+  fields:
+    name: "富山県"
+    rank: 16
+
+- model: users.Address
+  pk: 17
+  fields:
+    name: "石川県"
+    rank: 17
+
+- model: users.Address
+  pk: 18
+  fields:
+    name: "福井県"
+    rank: 18
+
+- model: users.Address
+  pk: 19
+  fields:
+    name: "山梨県"
+    rank: 19
+
+- model: users.Address
+  pk: 20
+  fields:
+    name: "長野県"
+    rank: 20
+
+- model: users.Address
+  pk: 21
+  fields:
+    name: "岐阜県"
+    rank: 21
+
+- model: users.Address
+  pk: 22
+  fields:
+    name: "静岡県"
+    rank: 22
+
+- model: users.Address
+  pk: 23
+  fields:
+    name: "愛知県"
+    rank: 23
+
+- model: users.Address
+  pk: 24
+  fields:
+    name: "三重県"
+    rank: 24
+
+- model: users.Address
+  pk: 25
+  fields:
+    name: "滋賀県"
+    rank: 25
+
+- model: users.Address
+  pk: 26
+  fields:
+    name: "京都府"
+    rank: 26
+
+- model: users.Address
+  pk: 27
+  fields:
+    name: "大阪府"
+    rank: 27
+
+- model: users.Address
+  pk: 28
+  fields:
+    name: "兵庫県"
+    rank: 28
+
+- model: users.Address
+  pk: 29
+  fields:
+    name: "奈良県"
+    rank: 29
+
+- model: users.Address
+  pk: 30
+  fields:
+    name: "和歌山県"
+    rank: 30
+
+- model: users.Address
+  pk: 31
+  fields:
+    name: "鳥取県"
+    rank: 31
+
+- model: users.Address
+  pk: 32
+  fields:
+    name: "島根県"
+    rank: 32
+
+- model: users.Address
+  pk: 33
+  fields:
+    name: "岡山県"
+    rank: 33
+
+- model: users.Address
+  pk: 34
+  fields:
+    name: "広島県"
+    rank: 34
+
+- model: users.Address
+  pk: 35
+  fields:
+    name: "山口県"
+    rank: 35
+
+- model: users.Address
+  pk: 36
+  fields:
+    name: "徳島県"
+    rank: 36
+
+- model: users.Address
+  pk: 37
+  fields:
+    name: "香川県"
+    rank: 37
+
+- model: users.Address
+  pk: 38
+  fields:
+    name: "愛媛県"
+    rank: 38
+
+- model: users.Address
+  pk: 39
+  fields:
+    name: "高知県"
+    rank: 39
+
+- model: users.Address
+  pk: 40
+  fields:
+    name: "福岡県"
+    rank: 40
+
+- model: users.Address
+  pk: 41
+  fields:
+    name: "佐賀県"
+    rank: 41
+
+- model: users.Address
+  pk: 42
+  fields:
+    name: "長崎県"
+    rank: 42
+
+- model: users.Address
+  pk: 43
+  fields:
+    name: "熊本県"
+    rank: 43
+
+- model: users.Address
+  pk: 44
+  fields:
+    name: "大分県"
+    rank: 44
+
+- model: users.Address
+  pk: 45
+  fields:
+    name: "宮崎県"
+    rank: 45
+
+- model: users.Address
+  pk: 46
+  fields:
+    name: "鹿児島県"
+    rank: 46
+
+- model: users.Address
+  pk: 47
+  fields:
+    name: "沖縄県"
+    rank: 47
+
+- model: users.Address
+  pk: 48
+  fields:
+    name: "その他"
+    rank: 48

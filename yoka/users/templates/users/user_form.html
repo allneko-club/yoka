@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>{% trans "プロフィール編集" %}</h2>
+      </div>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="my-3">
+        <p class="my-0">{{ form.address.label }}{% trans "(必須)" %}</p>
+        {% for error in form.address.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.address }}
+      </div>
+
+      <div class="my-3">
+        <p class="my-0">{{ form.sex.label }}{% trans "(必須)" %}</p>
+        {% for error in form.sex.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.sex }}
+      </div>
+
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit">{% trans "保存" %}</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

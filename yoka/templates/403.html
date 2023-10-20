@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "権限がありません（403）" %}</h1>
+    <p>{% trans "リクエストしたページを表示する権限がありません。" %}</p>
+  </div>
+{% endblock %}

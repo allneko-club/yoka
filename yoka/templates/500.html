@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "サーバーエラー（500）" %}</h1>
+    <p>{% trans "サーバーでエラーが発生しました。管理者にお問い合わせ下さい。" %}</p>
+  </div>
+{% endblock %}

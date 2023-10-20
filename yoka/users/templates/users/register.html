@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "アカウント作成" %}</h1>
+
+    <div>
+      {{ form.non_field_errors }}
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+
+      {# ユーザー名 #}
+      <div class="my-3">
+        <p class="my-0">{{ form.username.label }}{% trans "(必須)" %}</p>
+        {% for error in form.username.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.username }}
+      </div>
+
+      {# メールアドレス #}
+      <div class="my-3">
+        <p class="my-0">{{ form.email.label }}{% trans "(必須)" %}</p>
+        {% for error in form.email.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.email }}
+      </div>
+
+      {# パスワード #}
+      <div class="my-3">
+        <p class="my-0">{{ form.password1.label }}{% trans "(必須)" %}</p>
+        {% for error in form.password1.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.password1 }}
+      </div>
+
+      {# パスワード確認 #}
+      <div class="my-3">
+        <p class="my-0">{{ form.password2.label }}{% trans "(必須)" %}</p>
+        {% for error in form.password2.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        {{ form.password2 }}
+      </div>
+
+      {# 利用規約同意 #}
+      <div class="my-3">
+        {% for error in form.accept_rule.errors %}
+          <p class="text-danger">{{ error|escape }}</p>
+        {% endfor %}
+        <div class="form-check">
+          {{ form.accept_rule }}
+          <label class="form-check-label">
+            <a href="{% url 'core:rule' %}">利用規約</a>に同意する。
+          </label>
+        </div>
+      </div>
+
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit">{% trans "登録" %}</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+- model: contacts.ContactStatus
+  pk: 1
+  fields:
+    name: "未対応"
+    rank: 1
+
+- model: contacts.ContactStatus
+  pk: 2
+  fields:
+    name: "対応済み"
+    rank: 2
