@@ -1,0 +1,18 @@
+{% load i18n %}
+<footer class="py-3 text-center bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <span><a class="link-light" href="{% url 'announcements:announcement_list' %}">{% trans "お知らせ" %}</a></span>
+        <span><a class="link-light" href="{% url 'contacts:contact_form' %}">{% trans "お問い合わせ" %}</a></span>
+        <span><a class="link-light" href="{% url 'core:how_to_use' %}">{% trans "使い方" %}</a></span>
+        <span><a class="link-light" href="{% url 'core:rule' %}">{% trans "利用規約" %}</a></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="my-0">&copy; Allneko Club Inc.</p>
+      </div>
+    </div>
+  </div>
+</footer>

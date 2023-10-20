@@ -1,0 +1,21 @@
+{% load i18n core_tags %}
+
+<div class="card my-2">
+  <h5 class="card-header">
+    <span><a href="{% url 'forum:category_threads' thread.category.slug %}">{{ thread.category.title }}</a></span>
+  </h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ thread.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{ thread.id }}</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      <span>{{ thread.handle_name|default:DEFAULT_HANDLE_NAME }}</span>
+      <span>{{ thread.create_date }}</span>
+      <span>{% trans "閲覧数" %} {{ thread.view_count }}</span>
+      <span>{% trans "返信数" %} {{ thread.reply_count }}</span>
+    </h6>
+    <p class="card-text">{{ thread.content | safe }}</p>
+    {% if request.user == thread.user and thread.reply_count == 0 %}
+        <a class="btn btn-primary btn-sm" href="{% url 'forum:update_thread' pk=thread.pk %}">{% trans '編集' %}</a>
+    {% endif %}
+  </div>
+</div>

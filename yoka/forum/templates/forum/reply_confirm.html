@@ -1,0 +1,25 @@
+{% extends "layouts/2column.html" %}
+{% load i18n %}
+
+{% block main %}
+  <div>
+    <h1>{% trans "書き込み確認" %}</h1>
+    <p>{% trans "入力内容を確認してください。" %}</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        {{field.as_hidden}}
+      {% endfor %}
+
+      {% for field in form %}
+        <b class="my-0">{{ field.label }}</b>
+        <p>{{ field.value }}</p>
+      {% endfor %}
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit" name="next" value="back">{% trans "戻る" %}</button>
+        <button class="btn btn-primary" type="submit" name="next" value="submit">{% trans "書き込む" %}</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

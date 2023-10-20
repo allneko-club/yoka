@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+{% load static i18n %}
+
+{% block content %}
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="row">
+      <div class="col">
+        <h1>{% trans "アカウント設定" %}</h1>
+      </div>
+    </div>
+    <div class="card my-4">
+      <div class="card-header">
+        {% trans "プロフィール" %}
+        <a href="{% url 'users:account_update' %}">{% trans "変更" %}</a>
+      </div>
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="col">{% trans "ユーザー名" %}</div>
+          <div class="col">{{ request.user.username }}</div>
+        </div>
+        <div class="row mb-2">
+          <div class="col">{% trans "性別" %}</div>
+          <div class="col">{{ request.user.sex|default:"---" }}</div>
+        </div>
+        <div class="row">
+          <div class="col">{% trans "居住地" %}</div>
+          <div class="col">{{ request.user.address| default:"---" }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        {% trans "メールアドレス" %}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">{% trans "メールアドレス" %}</div>
+          <div class="col">{{ request.user.email }}</div>
+          <div class="col"><a href="{% url 'users:email_update' %}">{% trans "変更" %}</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        {% trans "パスワードとセキュリティー" %}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">{% trans "パスワード" %}</div>
+          <div class="col"><a href="{% url 'users:password_change' %}">{% trans "変更" %}</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        {% trans "その他" %}
+      </div>
+      <div class="card-body">
+        <a href="{% url 'users:account_delete' %}">{% trans "アカウントを削除" %}</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

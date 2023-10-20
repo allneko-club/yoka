@@ -1,0 +1,38 @@
+{% load i18n core_tags %}
+{% if is_paginated %}
+  <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="{% get_page_url request 1 %}">{% trans "最初" %}</a>
+      </li>
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="{% get_page_url request page_obj.previous_page_number %}" aria-label="Previous">
+            <span aria-hidden="true"><</span>
+          </a>
+        </li>
+      {% endif %}
+      {% for page in page_numbers %}
+        {% if page %}
+          {% if page == page_obj.number %}
+            <li class="page-item active"><a class="page-link">{{ page }}</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="{% get_page_url request page %}">{{ page }}</a></li>
+          {% endif %}
+        {% else %}
+          ...
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="{% get_page_url request page_obj.next_page_number %}" aria-label="Next">
+            <span>></span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{% get_page_url request page_obj.paginator.num_pages %}">{% trans "最後" %}</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

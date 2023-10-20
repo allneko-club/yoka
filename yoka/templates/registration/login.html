@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  {% if form.errors %}
+    <p>{% trans "名前とパスワードが一致しません。正しく入力してください。" %}</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>{% trans "アクセスしようとしたページを表示する権限がありません。 表示するためには、アクセス権限のあるアカウントでログインしてください。" %}</p>
+    {% else %}
+      <p>{% trans "このページを見るためにはログインしてください。" %}</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="py-2">
+      <p class="my-0">{{ form.username.label }}</p>
+      {{ form.username }}
+    </div>
+
+    <div class="py-2">
+      <p class="my-0">{{ form.password.label }}</p>
+      {{ form.password }}
+    </div>
+
+    <button class="btn btn-primary my-1" type="submit" value="login" >{% trans "ログイン" %}</button>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  <a class="btn btn-primary my-1" href="{% url 'users:register' %}" role="button">{% trans "登録" %}</a>
+
+  <p class="my-2"><a href="{% url 'users:password_reset' %}">{% trans "パスワードを忘れましたか?" %}</a></p>
+{% endblock %}

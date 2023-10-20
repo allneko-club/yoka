@@ -1,0 +1,27 @@
+{% extends 'layouts/2column.html' %}
+{% load i18n %}
+
+{% block main %}
+  <div class="container">
+    <h1>{{ title }}</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="my-3">
+          <p class="my-0">{{ field.label }}{% if field.field.required %}(必須){% endif %}</p>
+          {% for error in field.errors %}
+            <p class="text-danger">{{ error|escape }}</p>
+          {% endfor %}
+          {{ field }}
+          {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <div class="my-3">
+        <button class="btn btn-primary" type="submit" name="next" value="confirm">{% trans "入力内容確認" %}</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

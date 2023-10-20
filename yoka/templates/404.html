@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "ページが存在しません（404）" %}</h1>
+    <p>{% trans "リクエストしたページは存在しないか、削除されました。" %}</p>
+  </div>
+{% endblock %}

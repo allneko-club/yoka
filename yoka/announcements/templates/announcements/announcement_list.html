@@ -1,0 +1,26 @@
+{% extends "layouts/2column.html" %}
+{% load static i18n core_tags %}
+
+{% block main %}
+  <div class="container my-2">
+    <div class="row my-2">
+      <div class="col">
+        <h1>{% trans "お知らせ" %}</h1>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <tbody>
+      {% for o in page_obj.object_list %}
+        <tr>
+          <td>{{ o.release_date }}</td>
+          <td><a href="{% url 'announcements:announcement_detail' o.pk %}">{{ o.title }}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% get_pagination %}
+    {% if not page_obj %}
+      <p>{% trans "現在お知らせはありません。" %}</p>
+    {% endif %}
+  </div>
+{% endblock %}

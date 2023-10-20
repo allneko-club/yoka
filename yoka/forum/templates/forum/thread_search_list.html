@@ -1,0 +1,18 @@
+{% extends 'layouts/2column.html' %}
+{% load core_tags i18n %}
+
+{% block main %}
+  <div>
+    <h1>{% trans "検索結果：" %}{{ keywords }}</h1>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-outline-success" href="{% get_page_url request '' '-create_date' %}" role="button" class="page-link">{% trans "新着順" %}</a>
+        <a class="btn btn-outline-success" href="{% get_page_url request '' 'create_date' %}" role="button" class="page-link">{% trans "作成順" %}</a>
+      </div>
+    </div>
+    {% for thread in page_obj %}
+      {% include "components/thread-card.html" %}
+    {% endfor %}
+    {% get_pagination %}
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<ul class="list-group list-group-flush">
+  {% for reply in replies %}
+    <li class="list-group-item">
+      <h3 class="h5">{{ reply.thread.title }}</h3>
+      <p>
+        <span><b>{{ reply.handle_name|default:DEFAULT_HANDLE_NAME }}</b></span>
+        <span class="text-muted">{{ reply.create_date }} ID: {{ reply.pk }}</span>
+      </p>
+      <p>{{ reply.content|safe }}</p>
+    </li>
+  {% endfor %}
+</ul>

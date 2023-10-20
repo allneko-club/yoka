@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "アカウント削除" %}{% endblock %}
+
+{% block content %}
+  <div class="container my-3">
+    <h1>{% trans "アカウント削除" %}</h1>
+    <p>{% trans "アカウントを削除してよろしいですか？" %}</p>
+    <form method="post">
+      {% csrf_token %}
+      <input class="btn btn-primary" type="submit" value="{% trans '削除' %}">
+    </form>
+  </div>
+{% endblock content %}

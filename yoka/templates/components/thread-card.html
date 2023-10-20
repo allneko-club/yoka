@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div class="card my-2">
+  <div class="card-body">
+    <h3 class="card-title">
+      <a href="{% url 'forum:thread_detail' thread.pk %}" class="card-link">{{ thread.title }}</a>
+    </h3>
+    <p class="card-subtitle mb-2 text-body-secondary">
+      <span>{{ thread.category.title }}</span>
+      <span>{% trans "返信" %} {{ thread.reply_count }}</span>
+      {{ thread.create_date }}
+    </p>
+  </div>
+</div>
